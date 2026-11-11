@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Crisi de la Restauració i la Setmana Tràgica (1898–1914)</title>
+<style>
+  :root{
+    --ink:#1b1f24; --muted:#5b6470; --line:#e4e7eb; --soft:#f6f7f9;
+    --accent:#9b2c2c; --accent-soft:#fbeaea; --ok:#1f7a4d; --ok-soft:#e6f4ec;
+    --bad:#b42318; --bad-soft:#fdecea; --ex:#1d4f91; --ex-soft:#eaf1fb;
+    --warn:#8a5a00; --warn-soft:#fff6e0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#fff;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+  .wrap{max-width:860px;margin:0 auto;padding:40px 22px 100px}
+  header.top{border-bottom:3px solid var(--accent);padding-bottom:22px;margin-bottom:28px}
+  .kicker{font:600 13px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:36px;line-height:1.15;margin:10px 0 8px}
+  .sub{color:var(--muted);margin:0}
+  h2{font-size:28px;line-height:1.2;margin:64px 0 6px;padding-top:10px}
+  h2 .num{color:var(--accent);font-size:16px;display:block;font-family:system-ui,sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+  h3{font-size:21px;margin:34px 0 8px}
+  h4{font:700 14px/1.2 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:28px 0 10px;color:var(--muted)}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:22px} li{margin-bottom:7px}
+  strong{color:#000}
+  nav.toc{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:18px 22px;font-family:system-ui,sans-serif;font-size:15px}
+  nav.toc b{display:block;margin-bottom:8px}
+  nav.toc ol{margin:0;padding-left:20px} nav.toc li{margin:4px 0}
+  nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+  nav.toc a:hover{color:var(--accent);border-color:var(--accent)}
+  .box{border-radius:10px;padding:16px 20px;margin:18px 0;border-left:5px solid}
+  .box .lbl{font:700 12px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:block}
+  .box p:last-child,.box ul:last-child{margin-bottom:0}
+  .ex{background:var(--ex-soft);border-color:var(--ex)} .ex .lbl{color:var(--ex)}
+  .warn{background:var(--warn-soft);border-color:#d69e2e} .warn .lbl{color:var(--warn)}
+  .key{background:var(--accent-soft);border-color:var(--accent)} .key .lbl{color:var(--accent)}
+  .chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:14px/1.3 system-ui,sans-serif;margin:14px 0 18px}
+  .chain span{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:7px 10px}
+  .chain i{color:var(--accent);font-style:normal;font-weight:700}
+  table{width:100%;border-collapse:collapse;font:15px/1.45 system-ui,sans-serif;margin:14px 0 20px}
+  th,td{border:1px solid var(--line);padding:9px 11px;vertical-align:top;text-align:left}
+  th{background:var(--soft)}
+  td:first-child{font-weight:600;white-space:nowrap}
+  /* Tests */
+  .quiz{border:1px solid var(--line);border-radius:12px;padding:6px 20px 18px;margin:22px 0;background:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:6px}
+  .quiz-head b{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+  .score{font-size:14px;color:var(--muted)}
+  .q{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .q:last-of-type{border-bottom:none}
+  .q .qt{font-weight:600;margin-bottom:10px;font-size:16px}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid #d3d8de;border-radius:8px;padding:9px 12px;margin:6px 0;font:15px/1.4 inherit;cursor:pointer;color:var(--ink)}
+  .opt:hover:not(:disabled){border-color:var(--ink);background:var(--soft)}
+  .opt:disabled{cursor:default}
+  .opt.right{background:var(--ok-soft);border-color:var(--ok);color:#0d3d26}
+  .opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:#6b130d}
+  .fb{display:none;font-size:14.5px;margin-top:8px;padding:9px 12px;border-radius:8px;background:var(--soft)}
+  .fb.show{display:block}
+  .btn{font:600 14px system-ui,sans-serif;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:10px 16px;cursor:pointer}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid #c9ced5}
+  .btn:hover{opacity:.88}
+  /* Exam */
+  #examen{border-top:3px solid var(--accent);margin-top:80px}
+  .exam-part{font:700 13px system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:30px 0 4px}
+  .open{font-family:system-ui,sans-serif;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+  .open .qt{font-weight:600;margin-bottom:10px}
+  .open textarea{width:100%;min-height:110px;border:1px solid #d3d8de;border-radius:8px;padding:10px;font:15px/1.5 system-ui,sans-serif;resize:vertical}
+  .model{display:none;margin-top:12px;background:var(--ok-soft);border-left:4px solid var(--ok);padding:12px 16px;border-radius:8px;font-size:15px}
+  .model.show{display:block}
+  .model ul{margin-bottom:0}
+  #result{display:none;margin-top:20px;padding:18px 20px;border-radius:12px;font-family:system-ui,sans-serif;border:2px solid var(--ink)}
+  #result.show{display:block}
+  #result .big{font-size:30px;font-weight:800}
+  .bytema{font-size:14px;color:var(--muted);margin-top:8px}
+  footer{margin-top:60px;color:var(--muted);font:13px system-ui,sans-serif;border-top:1px solid var(--line);padding-top:14px}
+
+  /* ===== COLORS PER TEMA ===== */
+  #t1{--c:#c2410c;--cs:#fff1e8}  /* taronja: crisi i 98 */
+  #t2{--c:#b91c1c;--cs:#fdecec}  /* vermell-groc: catalanisme */
+  #t3{--c:#7c3aed;--cs:#f3edff}  /* lila: oposició i sindicats */
+  #t4{--c:#be123c;--cs:#ffe9ef}  /* carmí: Setmana Tràgica */
+  #t5{--c:#0f766e;--cs:#e3f6f3}  /* verd: Canalejas */
+  #repas{--c:#1d4ed8;--cs:#e9f0ff}
+  #examen{--c:#111827;--cs:#f1f2f4}
+  section[id]>h2{background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 70%,#fff));color:#fff;padding:22px 24px;border-radius:14px;box-shadow:0 6px 18px color-mix(in srgb,var(--c) 25%,transparent)}
+  section[id]>h2 .num{color:#fff;opacity:.85}
+  section[id] h3{border-left:6px solid var(--c);padding-left:12px;color:color-mix(in srgb,var(--c) 75%,#000)}
+  section[id] h4{display:inline-block;background:var(--c);color:#fff;padding:6px 12px;border-radius:999px}
+  section[id] strong{color:color-mix(in srgb,var(--c) 70%,#000);background:linear-gradient(transparent 62%,var(--cs) 62%)}
+  section[id] li::marker{color:var(--c)}
+  section[id] .chain span{background:var(--cs);border-color:color-mix(in srgb,var(--c) 35%,#fff);color:color-mix(in srgb,var(--c) 70%,#000);font-weight:600}
+  section[id] .chain i{color:var(--c);font-size:18px}
+  section[id] .quiz{border:2px solid color-mix(in srgb,var(--c) 40%,#fff);background:linear-gradient(#fff,#fff) padding-box}
+  section[id] .quiz-head{border-bottom:2px solid var(--cs)}
+  section[id] .quiz-head b{color:var(--c)}
+  section[id] .quiz-head .score{background:var(--c);color:#fff;padding:3px 10px;border-radius:999px;font-weight:700}
+  section[id] th{background:var(--c);color:#fff;border-color:var(--c)}
+  section[id] tr:nth-child(even) td{background:var(--cs)}
+  .ex{background:#eaf1fb;border-color:#2563eb} .ex .lbl{color:#1d4ed8}
+  .ex .lbl::before{content:"💡 "}
+  .warn .lbl::before{content:"⚠️ "}
+  .key .lbl::before{content:"🔑 "}
+  nav.toc{background:#fff;border:2px solid #e4e7eb}
+  nav.toc ol{list-style:none;padding-left:0}
+  nav.toc li{display:flex;gap:10px;align-items:center;margin:8px 0}
+  nav.toc li::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--dot);flex:none}
+  nav.toc li:nth-child(1){--dot:#c2410c} nav.toc li:nth-child(2){--dot:#b91c1c} nav.toc li:nth-child(3){--dot:#7c3aed}
+  nav.toc li:nth-child(4){--dot:#be123c} nav.toc li:nth-child(5){--dot:#0f766e} nav.toc li:nth-child(6){--dot:#1d4ed8} nav.toc li:nth-child(7){--dot:#111827}
+  header.top{border-bottom:none;background:linear-gradient(120deg,#fff7ed,#fdecec 40%,#f3edff 70%,#e3f6f3);padding:28px 26px;border-radius:16px}
+  .tag{display:inline-block;font:700 11px system-ui,sans-serif;color:#fff;padding:3px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
+  .tg1{background:#c2410c}.tg2{background:#b91c1c}.tg3{background:#7c3aed}.tg4{background:#be123c}.tg5{background:#0f766e}
+  #examQs .q,.open{border-left:5px solid var(--tc,#ccc);padding-left:14px}
+  .open{border:1px solid #e4e7eb;border-left:5px solid var(--tc,#ccc)}
+  #result{border:none;background:linear-gradient(120deg,#e3f6f3,#e9f0ff)}
+  .bar{height:10px;border-radius:99px;background:#e5e7eb;overflow:hidden;margin:4px 0 8px}
+  .bar>div{height:100%}
+  .tl td:first-child{color:#fff;font-weight:800;text-align:center}
+  @media (max-width:600px){h1{font-size:28px}h2{font-size:24px}body{font-size:16px}td:first-child{white-space:normal}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Història d'Espanya i de Catalunya · Batxillerat</div>
+  <h1>La Crisi de la Restauració i la Setmana Tràgica (1898–1914)</h1>
+  <p class="sub">Cada tema té: explicació, exemple per fixar-ho, i un test ràpid. Al final hi ha un examen amb preguntes de tots els temes i nota final.</p>
+</header>
+
+<nav class="toc">
+  <b>Índex</b>
+  <ol>
+    <li><a href="#t1">La crisi del sistema, el Desastre del 98 i el Tancament de Caixes</a></li>
+    <li><a href="#t2">L'ascens del catalanisme: de la Lliga a la Mancomunitat</a></li>
+    <li><a href="#t3">Les noves forces d'oposició (polítiques i sindicals)</a></li>
+    <li><a href="#t4">Maura, la "Revolució des de dalt" i la Setmana Tràgica</a></li>
+    <li><a href="#t5">El reformisme liberal de Canalejas</a></li>
+    <li><a href="#repas">Repàs ràpid: cronologia, Maura vs. Canalejas, glossari</a></li>
+    <li><a href="#examen"><strong>Examen final</strong></a></li>
+  </ol>
+</nav>
+
+<!-- ===================== TEMA 1 ===================== -->
+<section id="t1">
+<h2><span class="num">Tema 1</span>La crisi del sistema, el Desastre del 98 i el Tancament de Caixes</h2>
+
+<h4>Explicació</h4>
+<h3>1.1 Un sistema muntat sobre un frau</h3>
+<p>La Restauració la va dissenyar <strong>Antonio Cánovas del Castillo</strong> amb la <strong>Constitució de 1876</strong>. La peça central era el <strong>torn pacífic</strong> (o torn dinàstic): conservadors i liberals s'alternaven al govern per pacte, no perquè la gent ho votés. Per garantir-ho, el Ministeri de la Governació controlava els resultats a través del <strong>caciquisme</strong> (els cacics locals manaven el vot) i la <strong>tupinada</strong> (falsejar directament els vots).</p>
+<p>Cap al 1900 aquest edifici comença a esquerdar-se per tres motius que s'encadenen:</p>
+<ul>
+  <li><strong>Moren els fundadors.</strong> Cánovas és assassinat per un anarquista el 1897 i Sagasta mor el 1903. Els nous líders, <strong>Maura</strong> (conservador) i <strong>Canalejas</strong> (liberal), hereten partits dividits en faccions, i per això els governs duren poquíssim.</li>
+  <li><strong>Alfons XIII assoleix la majoria d'edat (1902)</strong> amb 16 anys i s'acaba la regència de Maria Cristina d'Habsburg. En lloc de ser un rei només parlamentari, intervé: provoca crisis de govern, afavoreix militars i tria presidents. Més inestabilitat.</li>
+  <li><strong>La societat canvia i el sistema no.</strong> La indústria fa créixer Barcelona, Bilbao i Madrid: neixen classes mitjanes i un moviment obrer que no se senten representats pels dos partits del torn, que representen l'oligarquia agrària i financera.</li>
+</ul>
+
+<h3>1.2 El Desastre del 98 i el Regeneracionisme</h3>
+<p>El 1898, després de la intervenció dels <strong>Estats Units</strong>, Espanya perd les últimes colònies: <strong>Cuba, Puerto Rico i les Filipines</strong>. El cop es nota en quatre plans:</p>
+<ul>
+  <li><strong>Polític:</strong> queda clar que el règim és corrupte, ineficaç militarment i incapaç de gestionar una crisi.</li>
+  <li><strong>Econòmic:</strong> es perden mercats colonials protegits (mal especialment greu per al tèxtil català) i l'Estat queda amb un deute de guerra enorme.</li>
+  <li><strong>Social:</strong> moren o tornen mutilats milers de soldats de classe popular; els rics s'havien lliurat pagant.</li>
+  <li><strong>Moral i cultural:</strong> pessimisme i sensació de decadència, que es reflecteix en la <strong>Generació del 98</strong>.</li>
+</ul>
+<p>La resposta intel·lectual és el <strong>Regeneracionisme</strong>, amb <strong>Joaquín Costa</strong> com a figura clau. Denuncia el sistema com a <em>"oligarquia i caciquisme"</em> i demana <em>"escola i rebost"</em> (educació i modernització econòmica) i <em>"tancar el sepulcre del Cid amb set claus"</em> (deixar de viure de glòries passades).</p>
+
+<h3>1.3 El govern Silvela: l'esperança</h3>
+<p>El conservador <strong>Francisco Silvela</strong> intenta fer regeneracionisme des del govern i hi posa figures de prestigi:</p>
+<ul>
+  <li><strong>General Polavieja</strong> (Guerra): havia escrit un manifest favorable a una certa descentralització.</li>
+  <li><strong>Manuel Duran i Bas</strong> (Justícia): jurista català, un gest cap a Catalunya.</li>
+  <li><strong>Raimundo Fernández Villaverde</strong> (Hisenda): tècnic encarregat de quadrar comptes i pagar el deute de guerra.</li>
+</ul>
+<p>A Catalunya es confiava que arribaria la descentralització. No va arribar.</p>
+
+<h3>1.4 La reforma de Villaverde i el Tancament de Caixes (1899)</h3>
+<p>Per pagar el deute, Villaverde apuja molt els impostos. El problema és <strong>sobre qui recauen</strong>: no sobre la propietat agrària (la base dels cacics castellans i andalusos), sinó sobre la <strong>indústria i el comerç</strong>. Com que Catalunya és el gran centre industrial i comercial, és el territori més perjudicat.</p>
+<p>Els empresaris s'organitzen en <strong>Lligues de Productors</strong> a tot l'Estat. A Barcelona, davant la negativa de Madrid a negociar, botiguers, comerciants i industrials fan una vaga fiscal la tardor de 1899: el <strong>Tancament de Caixes</strong>. Donen de baixa els negocis per deixar de pagar legalment.</p>
+<p>L'Estat respon amb màxima duresa: <strong>estat de guerra</strong> a Barcelona, suspensió de garanties, <strong>empresonaments</strong> sense judici i <strong>embargaments</strong> de béns. L'alcalde, el <strong>Dr. Bartomeu Robert</strong>, es nega a signar els embargaments contra els seus conciutadans i acaba dimitint: es converteix en símbol de dignitat cívica.</p>
+
+<div class="chain"><span>Desastre del 98</span><i>→</i><span>Deute de guerra</span><i>→</i><span>Reforma Villaverde (impostos a indústria i comerç)</span><i>→</i><span>Tancament de Caixes (1899)</span><i>→</i><span>Repressió</span><i>→</i><span>Burgesia al catalanisme</span><i>→</i><span>Lliga Regionalista (1901)</span></div>
+
+<div class="box warn"><span class="lbl">Atenció examen</span>
+<p><strong>Per què el Tancament de Caixes és el punt d'inflexió del catalanisme polític?</strong> Fins al 1899 la burgesia catalana confiava en els partits dinàstics per defensar els seus interessos (sobretot el proteccionisme). El fracàs de Silvela, el càstig fiscal de Villaverde i la repressió li demostren que Madrid no la defensa. Per això fa el salt a la política activa i s'uneix al catalanisme per fundar la <strong>Lliga Regionalista (1901)</strong>.</p></div>
+
+<h4>Exemple per entendre-ho</h4>
+<div class="box ex"><span class="lbl">Exemple</span>
+<p>Imagina un fabricant tèxtil de Sabadell el 1899. Fins al 98 venia teixits a Cuba amb aranzels que el protegien. Ara ha perdut aquest mercat i, a sobre, el govern li apuja els impostos per pagar la guerra que ha fet perdre aquell mercat. Mentrestant, el gran terratinent andalús amb milers d'hectàrees gairebé no nota la pujada. El fabricant tanca la caixa, deixa de pagar, i l'Estat li envia l'exèrcit i li embarga la fàbrica. Aquest home, que el 1898 votava conservador, el 1901 vota la Lliga.</p></div>
+
+<div class="quiz" data-quiz="t1"></div>
+</section>
+
+<!-- ===================== TEMA 2 ===================== -->
+<section id="t2">
+<h2><span class="num">Tema 2</span>L'ascens del catalanisme polític: de la Lliga a la Mancomunitat (1901–1914)</h2>
+
+<h4>Explicació</h4>
+<h3>2.1 Neix la Lliga Regionalista (1901)</h3>
+<p>El 1901 s'uneixen dos grups: la <strong>Unió Regionalista</strong> (la burgesia mobilitzada pel Tancament de Caixes) i el <strong>Centre Nacional Català</strong> (joves intel·lectuals: <strong>Prat de la Riba, Cambó, Duran i Ventosa</strong>). Resultat: la <strong>Lliga Regionalista</strong>, el primer partit modern de Catalunya.</p>
+<ul>
+  <li><strong>Catalanisme conservador:</strong> representa burgesia industrial, comercial i financera, propietaris rurals i sectors catòlics d'ordre.</li>
+  <li><strong>Autonomista, no independentista:</strong> vol un estatut d'autonomia dins d'una Espanya descentralitzada.</li>
+  <li><strong>Modernitzadora:</strong> Catalunya com a motor que ha de modernitzar tot Espanya.</li>
+</ul>
+<p>A les eleccions generals de maig de 1901 presenta a Barcelona la <strong>Candidatura dels 4 Presidents</strong> (Robert, Rusiñol, Domènech i Montaner, Torres). Guanya els <strong>4 escons</strong> i després <strong>11 regidors</strong>. Significat doble: <strong>s'acaba el caciquisme a Barcelona</strong> (eleccions lliures des d'aleshores) i es trenca el monopoli dels partits dinàstics a Catalunya.</p>
+
+<h3>2.2 La visita d'Alfons XIII (1904)</h3>
+<p>Els republicans fan boicot al rei i no el volen rebre a l'Ajuntament. La Lliga dubta. <strong>Francesc Cambó</strong> trenca el boicot, parla amb el rei i li exposa les aspiracions d'autogovern. Això provoca la sortida de la Lliga dels sectors més d'esquerres i consolida la línia <strong>pragmàtica i pactista</strong> del partit.</p>
+
+<h3>2.3 Els Fets del ¡Cu-cut! (1905) i la Llei de Jurisdiccions (1906)</h3>
+<p>El novembre de 1905 el setmanari satíric <strong>¡Cu-cut!</strong> publica un acudit de <strong>Joan Junceda</strong> que es riu de l'exèrcit: un soldat diu que celebren "la victòria del banquet" (al·ludint al banquet de victòria de la Lliga), ja que l'exèrcit no en guanyava cap de real.</p>
+<ul>
+  <li><strong>25 de novembre de 1905:</strong> uns 300 oficials assalten i cremen les redaccions del <strong>¡Cu-cut!</strong> i de <strong>La Veu de Catalunya</strong> (diari de la Lliga).</li>
+  <li><strong>Impunitat:</strong> el govern liberal (Montero Ríos, després Moret) no castiga els militars, sinó que cedeix.</li>
+  <li><strong>Llei de Jurisdiccions (1906):</strong> amb el vistiplau del rei, les ofenses contra l'Exèrcit, la Monarquia o la unitat de la Pàtria passen a ser jutjades per <strong>tribunals militars</strong>, no civils.</li>
+</ul>
+<p>Conseqüència: cop a la llibertat d'expressió i <strong>tutela militar sobre el poder civil</strong>.</p>
+
+<h3>2.4 Solidaritat Catalana (1906) i les eleccions de 1907</h3>
+<p>La indignació genera <strong>Solidaritat Catalana</strong>, una coalició que aplega gairebé tothom: Lliga, republicans catalanistes (Unió Republicana), republicans federals i fins i tot <strong>carlins</strong>. L'únic gran absent és el <strong>Partit Republicà Radical de Lerroux</strong>, espanyolista i anticatalanista.</p>
+<p>Programa: derogar la Llei de Jurisdiccions i aconseguir autonomia. El 1907 guanya <strong>40 dels 44 escons</strong> catalans. És la <strong>fi del torn canovista a Catalunya</strong>.</p>
+
+<h3>2.5 La Mancomunitat de Catalunya (1914)</h3>
+<p>Solidaritat es trenca després de la Setmana Tràgica (1909), però la Lliga continua negociant. <strong>Prat de la Riba i Cambó</strong> pacten amb <strong>Canalejas (1912)</strong> una llei que permet que les diputacions d'una mateixa regió s'agrupin. Canalejas és assassinat i la llei s'aprova per reial decret amb el conservador <strong>Eduardo Dato</strong> a finals de 1913.</p>
+<p>El <strong>6 d'abril de 1914</strong> es constitueix la <strong>Mancomunitat</strong>, que uneix les quatre diputacions (Barcelona, Girona, Lleida, Tarragona). President: <strong>Prat de la Riba</strong> (fins a la seva mort el 1917; el succeeix <strong>Puig i Cadafalch</strong>).</p>
+<div class="box warn"><span class="lbl">Atenció examen: els límits</span>
+<p>La Mancomunitat <strong>no era un govern autonòmic</strong>: sense parlament ni poder legislatiu, sense impostos directes propis, sense ordre públic, i <strong>no restablia la Generalitat</strong>. Tot i això va fer molta feina: carreteres i telèfons, ensenyament tècnic, <strong>Biblioteca de Catalunya</strong>, <strong>Institut d'Estudis Catalans</strong> i normativització del català amb <strong>Pompeu Fabra</strong>.</p></div>
+
+<div class="chain"><span>Lliga (1901)</span><i>→</i><span>Cu-cut! (1905)</span><i>→</i><span>Llei de Jurisdiccions (1906)</span><i>→</i><span>Solidaritat Catalana (1906)</span><i>→</i><span>40/44 escons (1907)</span><i>→</i><span>Negociació amb Canalejas (1912)</span><i>→</i><span>Mancomunitat (1914)</span></div>
+
+<h4>Exemple per entendre-ho</h4>
+<div class="box ex"><span class="lbl">Exemple</span>
+<p>Si avui un humorista fes un acudit sobre l'exèrcit i, en lloc de ser jutjat (si de cas) per un jutge normal, el jutgés un tribunal de militars, aquest seria l'efecte de la Llei de Jurisdiccions: <strong>la part ofesa fa també de jutge</strong>. Per això partits que no tenien res en comú (carlins ultracatòlics i republicans federals) es van posar d'acord: el que estava en joc era la llibertat de tots.</p></div>
+
+<div class="quiz" data-quiz="t2"></div>
+</section>
+
+<!-- ===================== TEMA 3 ===================== -->
+<section id="t3">
+<h2><span class="num">Tema 3</span>Les noves forces d'oposició al sistema (1900–1923)</h2>
+
+<h4>Explicació</h4>
+<h3>3.1 L'oposició política: partits de masses</h3>
+<p><strong>A) Republicanisme i lerrouxisme.</strong> El republicanisme estava dividit, però es renova amb líders populistes. <strong>Alejandro Lerroux</strong> funda el <strong>Partit Republicà Radical</strong> a Barcelona el <strong>1908</strong> (amb arrels des de 1901). Trets: discurs <strong>demagògic i obrerista</strong>, <strong>anticlericalisme</strong> extrem (incitava a cremar convents), i sobretot <strong>espanyolisme i anticatalanisme</strong>: deia que la Lliga era un invent de la burgesia per dividir els obrers. Va atreure molts <strong>immigrants</strong> i a la pràctica va fer de <strong>fre al catalanisme</strong>. A València hi ha un fenomen semblant: el <strong>blasquisme</strong> de <strong>Vicente Blasco Ibáñez</strong>.</p>
+<p><strong>B) Carlisme.</strong> Arrelat a Navarra, País Basc i Catalunya interior, però dividit (tradicionals vs. integristes) i perdent pes davant els nacionalismes.</p>
+<p><strong>C) Nacionalismes perifèrics.</strong> Catalanisme (Lliga); <strong>nacionalisme basc</strong> amb el <strong>PNB</strong> de <strong>Sabino Arana (1895)</strong>: catòlic, defensa dels furs i de la identitat basca davant la industrialització de Biscaia; inicis del galleguisme i l'andalusisme.</p>
+<p><strong>D) Socialisme (PSOE).</strong> <strong>Pablo Iglesias</strong> s'alia amb els republicans a partir de 1909 (<strong>Conjunció Republicano-Socialista</strong>) i el <strong>1910</strong> esdevé el <strong>primer diputat socialista</strong> de la història a les Corts.</p>
+
+<h3>3.2 L'oposició sindical</h3>
+<p><strong>A) Anarcosindicalisme (Catalunya, València, Andalusia).</strong> Rebutja les eleccions (<strong>apoliticisme</strong>) i defensa l'<strong>acció directa</strong> i la <strong>vaga general revolucionària</strong>. Passa del terrorisme aïllat a un sindicalisme de masses:</p>
+<ul>
+  <li><strong>Solidaritat Obrera (1907):</strong> federació local d'obrers a Barcelona.</li>
+  <li><strong>CGT (1910):</strong> pas previ a escala estatal.</li>
+  <li><strong>CNT (1911):</strong> neix al saló de Belles Arts de Barcelona; força hegemònica a Catalunya.</li>
+  <li><strong>Congrés de Sants (1918):</strong> es passa dels <strong>sindicats d'ofici</strong> (fusters, filadors, tipògrafs per separat) als <strong>sindicats únics o d'indústria</strong> (tots els d'un ram: tèxtil, metall, aigua). Permet paralitzar sectors sencers.</li>
+</ul>
+<p><strong>B) Sindicalisme socialista (UGT).</strong> Lligada al PSOE. Implantada a Madrid, Astúries (mineria), País Basc (siderúrgia) i part d'Andalusia. Més <strong>negociadora i disciplinada</strong>; combina pressió laboral i acció parlamentària. Federacions d'indústria a partir de 1925.</p>
+<p><strong>C) La patronal.</strong> Els empresaris s'organitzen (<strong>Federació Patronal</strong>) i fan servir el <strong>lock-out</strong> (tancament patronal), <strong>llistes negres</strong>, pressió per declarar l'estat de guerra i, més endavant, <strong>pistolers</strong> contra dirigents obrers.</p>
+
+<table>
+<tr><th></th><th style="background:#111">CNT (anarcosindicalista)</th><th style="background:#dc2626">UGT (socialista)</th></tr>
+<tr><td>Zona</td><td>Catalunya, València, Andalusia</td><td>Madrid, Astúries, País Basc</td></tr>
+<tr><td>Política</td><td>Apoliticisme: no vota</td><td>Vinculada al PSOE, acció parlamentària</td></tr>
+<tr><td>Mètode</td><td>Acció directa, vaga general revolucionària</td><td>Negociació, disciplina</td></tr>
+<tr><td>Estructura</td><td>Sindicat únic des de 1918 (Sants)</td><td>Federacions d'indústria des de 1925</td></tr>
+</table>
+
+<h4>Exemple per entendre-ho</h4>
+<div class="box ex"><span class="lbl">Exemple: ofici vs. sindicat únic</span>
+<p>En una empresa d'aigües treballen fontaners, administratius i paletes. Amb <strong>sindicats d'ofici</strong>, si fan vaga els fontaners, l'empresa continua amb la resta i els substitueix. Amb el <strong>sindicat únic del ram de l'aigua</strong>, paren <strong>tots</strong> alhora i la ciutat es queda sense servei. Per això la vaga del ram de l'aigua de Barcelona va poder durar 4 setmanes i tenir tanta força.</p></div>
+
+<div class="quiz" data-quiz="t3"></div>
+</section>
+
+<!-- ===================== TEMA 4 ===================== -->
+<section id="t4">
+<h2><span class="num">Tema 4</span>Maura, la "Revolució des de dalt" i la Setmana Tràgica (1909)</h2>
+
+<h4>Explicació</h4>
+<h3>4.1 El "Govern Llarg" de Maura (1907–1909)</h3>
+<p><strong>Antonio Maura</strong>, conservador, governa del 1907 al 1909 amb el lema de la <strong>"Revolució des de dalt"</strong>: fer reformes des del poder perquè <strong>no esclati una revolució des de baix</strong> que tombi el règim. La crítica és que <strong>no era una revolució real</strong>: era cosa de les elits, sense comptar amb el poble, i canviava l'aparença sense tocar l'estructura de poder.</p>
+<ul>
+  <li><strong>Modernització naval</strong> per recuperar prestigi després del 98.</li>
+  <li><strong>Llei de vaga (1909):</strong> reconeix el dret de vaga però amb fortes limitacions.</li>
+  <li><strong>Inspectors de treball i juntes d'arbitratge</strong> obligatori entre patrons i obrers.</li>
+  <li><strong>Reforma electoral fallida:</strong> volia substituir part del vot individual per <strong>representació corporativa</strong>. Fracassa per l'oposició de liberals i esquerres.</li>
+</ul>
+
+<div class="box warn"><span class="lbl">Atenció examen: revolta vs. revolució</span>
+<p><strong>Revolta:</strong> protesta espontània i violenta, limitada en espai i temps, sense programa polític; acaba en repressió i sense canvi de poder.<br>
+<strong>Revolució:</strong> transformació conscient i estructural amb canvi real de poder i de model (Revolució Francesa, Russa).<br>
+<strong>1909:</strong> alguns sectors van intentar una revolució republicana, però va degenerar en una <strong>revolta</strong> caòtica que l'exèrcit va esclafar.</p></div>
+
+<h3>4.2 Els orígens: el Rif i el "cupo"</h3>
+<ul>
+  <li><strong>Marroc:</strong> després de la <strong>Conferència d'Algesires (1906)</strong>, Espanya té un protectorat al nord del Marroc (el Rif). Empresaris com <strong>Romanones</strong> i el <strong>marquès de Comillas</strong> hi tenen <strong>mines</strong>. Els rifenys ataquen els treballadors del ferrocarril miner i esclata la guerra.</li>
+  <li><strong>Barranco del Lobo (juliol 1909):</strong> emboscada prop de Melilla, més de <strong>1.200 baixes</strong> espanyoles.</li>
+  <li><strong>Reservistes:</strong> Maura mobilitza homes que ja havien fet la mili, molts veterans de Cuba, amb feina i fills.</li>
+  <li><strong>El "cupo" o redempció en metàl·lic:</strong> pagant uns <strong>1.500 pessetes</strong> (el sou d'un any d'un obrer) et lliuraves d'anar al front. Els rics pagaven; els obrers anaven a morir per <strong>defensar negocis miners privats</strong>.</li>
+</ul>
+
+<h3>4.3 Els fets: del motí a la "Rosa de Foc"</h3>
+<ul>
+  <li><strong>18 de juliol:</strong> al port de Barcelona, dames de la burgesia reparteixen <strong>medalles religioses i tabac</strong> als soldats. Ho viuen com un insult. Els reservistes s'<strong>amotinen</strong>; l'exèrcit els amenaça amb consells de guerra.</li>
+  <li><strong>26 de juliol:</strong> <strong>Solidaritat Obrera</strong> i socialistes convoquen una <strong>vaga general pacífica</strong> contra la guerra.</li>
+  <li>La vaga + el motí descontrolen la situació: <strong>barricades</strong> al Poble Nou, Gràcia, Sant Martí, Sants; es tallen trens, llum i gas.</li>
+  <li>La ràbia va contra <strong>l'Exèrcit</strong> (la guerra) i <strong>l'Església</strong> (vista com aliada dels rics): es cremen <strong>més de 80 edificis religiosos</strong>. D'aquí el nom de Barcelona com a <strong>"Rosa de Foc"</strong>.</li>
+</ul>
+
+<h3>4.4 La repressió i Ferrer i Guàrdia</h3>
+<ul>
+  <li><strong>Estat de guerra</strong>, tropes de València i Saragossa, artilleria contra barricades. Més d'un centenar de morts, quasi tots obrers.</li>
+  <li>Milers de presos, centenars de consells de guerra, <strong>17 condemnes a mort, 5 executades</strong> a <strong>Montjuïc</strong>.</li>
+  <li><strong>Francesc Ferrer i Guàrdia</strong>, pedagog llibertari, fundador de l'<strong>Escola Moderna</strong> (laica, mixta, racionalista), no era a Barcelona ni hi va participar, però l'acusen sense proves de ser l'<strong>"inspirador intel·lectual"</strong>. L'afusellen l'<strong>octubre de 1909</strong>.</li>
+  <li>Protestes a París, Londres, Brussel·les, Roma. Campanya <strong>"Maura, no!"</strong>. <strong>Alfons XIII destitueix Maura</strong> (octubre 1909) i el govern passa als liberals.</li>
+</ul>
+
+<div class="chain"><span>Mines al Rif</span><i>→</i><span>Guerra</span><i>→</i><span>Barranco del Lobo</span><i>→</i><span>Reservistes + cupo</span><i>→</i><span>Motí al port</span><i>→</i><span>Vaga general 26/7</span><i>→</i><span>Revolta, crema d'esglésies</span><i>→</i><span>Repressió, Ferrer afusellat</span><i>→</i><span>"Maura, no!" → cau Maura</span></div>
+
+<h4>Exemple per entendre-ho</h4>
+<div class="box ex"><span class="lbl">Exemple</span>
+<p>Un obrer de Gràcia de 30 anys, casat i amb tres fills, va fer la mili a Cuba. El juliol de 1909 rep l'ordre d'anar al Marroc. El fill del propietari de la fàbrica on treballa, de 21 anys i solter, paga 1.500 pessetes i es queda a casa. Al port, una senyora rica li dona una medalla de la Mare de Déu. Ell sap que la guerra és per protegir mines d'aquests mateixos rics. Per això la protesta va contra l'Exèrcit i l'Església, i no és casual.</p></div>
+
+<div class="quiz" data-quiz="t4"></div>
+</section>
+
+<!-- ===================== TEMA 5 ===================== -->
+<section id="t5">
+<h2><span class="num">Tema 5</span>El reformisme liberal de José Canalejas (1910–1912)</h2>
+
+<h4>Explicació</h4>
+<h3>5.1 El programa</h3>
+<p>Després de la caiguda de Maura, el rei encarrega el govern a <strong>José Canalejas</strong>, l'ala més progressista del Partit Liberal. Objectiu: <strong>democratitzar</strong> la Restauració amb <strong>obertura social</strong> i <strong>secularització</strong>, per atreure obrers i republicans cap a la monarquia.</p>
+
+<h3>5.2 Les reformes</h3>
+<p><strong>A) Legislació social:</strong> límit de la jornada en sectors durs com la <strong>mineria</strong>; regulació del treball femení i <strong>prohibició del treball nocturn de les dones</strong>; <strong>edat mínima</strong> per treballar (contra el treball infantil). Però els salaris de les dones continuen sent molt inferiors.</p>
+<p><strong>B) Religió: la Llei del Cadenat (1910).</strong> Prohibeix instal·lar <strong>nous ordes religiosos</strong> sense permís del govern mentre no hi hagi una nova llei d'associacions. Molts ordes arribaven fugint de les lleis laiques de França. Enfrontament fort amb l'Església, la Santa Seu i els carlins.</p>
+<p><strong>C) Reforma militar:</strong> en temps de <strong>guerra</strong>, servei <strong>obligatori per a tothom</strong>, sense substituts ni redempció per diners (corregeix la injustícia de 1909). En temps de pau es manté una reducció del servei pagant una quota, amb tributs més alts per als rics.</p>
+<p><strong>D) Qüestió catalana:</strong> negocia amb la Lliga de Prat de la Riba la <strong>Llei de Mancomunitats (1912)</strong>. No dona autonomia política real (sense impostos directes ni educació pròpia), però permet unir les quatre diputacions per a obres i serveis.</p>
+
+<h3>5.3 L'assassinat (1912)</h3>
+<p>El <strong>12 de novembre de 1912</strong>, mirant l'aparador de la llibreria San Martín a la <strong>Puerta del Sol</strong>, l'anarquista <strong>Manuel Pardiñas</strong> el mata d'un tret i després se suïcida. Amb ell mor l'últim intent seriós de regenerar el règim des del liberalisme. Els dos partits es fragmenten, i el camí porta a la <strong>vaga general de 1917</strong> i al <strong>cop d'estat de Primo de Rivera (1923)</strong>.</p>
+
+<h4>Exemple per entendre-ho</h4>
+<div class="box ex"><span class="lbl">Exemple</span>
+<p>Compara la mateixa situació de 1909 amb la llei de Canalejas: si el 1913 hagués esclatat una guerra, el fill del propietari de la fàbrica <strong>també</strong> hauria hagut d'anar al front amb l'obrer de Gràcia. Canalejas intenta treure al règim els motius que havien encès la Setmana Tràgica (desigualtat militar, poder de l'Església, condicions laborals) abans que els obrers optin per la revolució.</p></div>
+
+<div class="quiz" data-quiz="t5"></div>
+</section>
+
+<!-- ===================== REPÀS ===================== -->
+<section id="repas">
+<h2><span class="num">Repàs</span>Repàs ràpid per a l'examen</h2>
+
+<h3>Cronologia fonamental</h3>
+<table class="tl">
+<tr><th>Any</th><th>Fet</th><th>Per què importa</th></tr>
+<tr><td style="background:#c2410c">1898</td><td>Desastre del 98</td><td>Pèrdua de Cuba, Puerto Rico i Filipines; neix el Regeneracionisme</td></tr>
+<tr><td style="background:#c2410c">1899</td><td>Tancament de Caixes</td><td>Vaga fiscal contra Villaverde; la burgesia s'acosta al catalanisme</td></tr>
+<tr><td style="background:#b91c1c">1901</td><td>Lliga Regionalista</td><td>Victòria dels 4 Presidents; fi del caciquisme a Barcelona</td></tr>
+<tr><td style="background:#c2410c">1902</td><td>Majoria d'edat d'Alfons XIII</td><td>Fi de la regència de Maria Cristina</td></tr>
+<tr><td style="background:#b91c1c">1904</td><td>Visita del rei a Barcelona</td><td>Cambó trenca el boicot republicà</td></tr>
+<tr><td style="background:#b91c1c">1905</td><td>Fets del ¡Cu-cut!</td><td>Militars assalten ¡Cu-cut! i La Veu sense càstig</td></tr>
+<tr><td style="background:#b91c1c">1906</td><td>Llei de Jurisdiccions / Solidaritat Catalana</td><td>Justícia militar per a crítiques; coalició unitària</td></tr>
+<tr><td style="background:#be123c">1907</td><td>Triomf de la Soli (40/44) · Govern Llarg de Maura</td><td>Fi del torn a Catalunya; "Revolució des de dalt"</td></tr>
+<tr><td style="background:#be123c">1909</td><td>Setmana Tràgica</td><td>Barranco del Lobo, Rosa de Foc, Ferrer afusellat, cau Maura</td></tr>
+<tr><td style="background:#0f766e">1910</td><td>Llei del Cadenat · Pablo Iglesias diputat</td><td>Secularització; primer diputat socialista</td></tr>
+<tr><td style="background:#7c3aed">1911</td><td>Fundació de la CNT</td><td>Gran sindicat anarcosindicalista</td></tr>
+<tr><td style="background:#0f766e">1912</td><td>Assassinat de Canalejas</td><td>Fi del reformisme liberal</td></tr>
+<tr><td style="background:#b91c1c">1914</td><td>Mancomunitat de Catalunya</td><td>Quatre diputacions unides; Prat de la Riba president</td></tr>
+</table>
+
+<h3>Maura vs. Canalejas</h3>
+<table>
+<tr><th>Àmbit</th><th style="background:#be123c">Maura (conservador, 1907–09)</th><th style="background:#0f766e">Canalejas (liberal, 1910–12)</th></tr>
+<tr><td>Idea</td><td>"Revolució des de dalt" per evitar la de baix; ordre</td><td>Obertura social; democratitzar i secularitzar</td></tr>
+<tr><td>Religió</td><td>Estat confessional, suport a l'Església</td><td>Llei del Cadenat (1910)</td></tr>
+<tr><td>Treball</td><td>Llei de vaga restrictiva, arbitratges, inspectors</td><td>Jornada màxima, protecció de dones i infants</td></tr>
+<tr><td>Exèrcit</td><td>Manté quotes i redempció</td><td>Servei obligatori per a tothom en guerra</td></tr>
+<tr><td>Catalunya</td><td>Reforma electoral corporativa fallida; suspicàcia</td><td>Negocia la Llei de Mancomunitats (1912)</td></tr>
+<tr><td>Caiguda</td><td>Setmana Tràgica i Ferrer ("Maura, no!")</td><td>Assassinat per Pardiñas (1912)</td></tr>
+</table>
+
+<h3>Glossari</h3>
+<div class="box key"><span class="lbl">Conceptes clau</span>
+<ul>
+<li><strong>Torn pacífic:</strong> alternança pactada entre conservadors i liberals garantida amb frau electoral.</li>
+<li><strong>Caciquisme / tupinada:</strong> control local del vot pels cacics / falsificació dels vots.</li>
+<li><strong>Regeneracionisme:</strong> corrent (Joaquín Costa) que denuncia "oligarquia i caciquisme" i demana "escola i rebost".</li>
+<li><strong>Tancament de Caixes (1899):</strong> vaga fiscal de comerciants i industrials barcelonins contra Villaverde.</li>
+<li><strong>Candidatura dels 4 Presidents (1901):</strong> llista de la Lliga que guanya a Barcelona i acaba amb el caciquisme a la ciutat.</li>
+<li><strong>Llei de Jurisdiccions (1906):</strong> les ofenses a l'exèrcit o a la unitat d'Espanya passen a tribunals militars.</li>
+<li><strong>Solidaritat Catalana:</strong> coalició de carlins a republicans contra aquesta llei; 40/44 escons el 1907.</li>
+<li><strong>Lerrouxisme:</strong> populisme obrerista, anticlerical, espanyolista i anticatalanista.</li>
+<li><strong>Cupo / redempció en metàl·lic:</strong> pagar (≈1.500 pessetes) per no anar a la guerra.</li>
+<li><strong>Ferrer i Guàrdia:</strong> pedagog de l'Escola Moderna afusellat sense proves el 1909.</li>
+<li><strong>Llei del Cadenat (1910):</strong> prohibició de nous ordes religiosos sense permís.</li>
+<li><strong>Sindicat únic:</strong> tots els obrers d'un ram en un sol sindicat (CNT, Congrés de Sants 1918).</li>
+<li><strong>Mancomunitat (1914):</strong> unió administrativa de les 4 diputacions, sense poder legislatiu.</li>
+</ul></div>
+</section>
+
+<!-- ===================== EXAMEN ===================== -->
+<section id="examen">
+<h2><span class="num">Examen final</span>Examen: tots els temes</h2>
+<p>25 preguntes tipus test (5 per tema) i 5 preguntes de desenvolupament. Respon el test, prem <strong>Corregir</strong> i després escriu les preguntes llargues i compara-les amb la resposta model.</p>
+
+<div class="exam-part">Part A · Tipus test</div>
+<div id="examQs" class="quiz" style="padding-top:10px"></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+  <button class="btn" id="corregir">Corregir examen</button>
+  <button class="btn ghost" id="reiniciar">Tornar a començar</button>
+</div>
+<div id="result"></div>
+
+<div class="exam-part" style="margin-top:44px">Part B · Desenvolupament</div>
+<div id="openQs"></div>
+</section>
+
+<footer>Fet a partir del dossier "La Crisi de la Restauració i la Setmana Tràgica (1898–1914)".</footer>
+</div>
+
+<script>
+const TESTS = {
+ t1:[
+  {q:"Qui va dissenyar el sistema de la Restauració i amb quina constitució?",o:["Sagasta, amb la Constitució de 1869","Cánovas del Castillo, amb la Constitució de 1876","Maura, amb la Constitució de 1876","Silvela, amb la Constitució de 1812"],a:1,e:"Cánovas el va dissenyar amb la Constitució de 1876, basada en el torn pacífic."},
+  {q:"Què era la tupinada?",o:["Un impost sobre la indústria","La falsificació descarada dels vots","Una vaga fiscal","Un pacte entre partits"],a:1,e:"La tupinada era l'adulteració dels vots, junt amb el caciquisme."},
+  {q:"Sobre qui va recaure principalment la reforma fiscal de Villaverde?",o:["La propietat agrària","L'Església","La indústria i el comerç","Els obrers"],a:2,e:"Va gravar indústria i comerç, i per això Catalunya va ser la més perjudicada."},
+  {q:"Per què va dimitir el Dr. Bartomeu Robert?",o:["Per perdre les eleccions","Perquè es va negar a signar els embargaments contra els contribuents","Perquè el rei el va destituir","Per malaltia"],a:1,e:"Es va negar a executar els embargaments i va dimitir; es va convertir en símbol de dignitat cívica."}
+ ],
+ t2:[
+  {q:"Quins dos grups es van unir per fundar la Lliga Regionalista el 1901?",o:["Unió Regionalista i Centre Nacional Català","Unió Republicana i el PSOE","Els carlins i els federals","Solidaritat Obrera i la UGT"],a:0,e:"Unió Regionalista (burgesia del Tancament de Caixes) + Centre Nacional Català (Prat de la Riba, Cambó...)."},
+  {q:"Què establia la Llei de Jurisdiccions (1906)?",o:["L'autonomia de Catalunya","Que les ofenses a l'exèrcit i la pàtria les jutgessin tribunals militars","El sufragi universal","La creació de la Mancomunitat"],a:1,e:"Passava aquests delictes a la jurisdicció militar: cop a la llibertat d'expressió."},
+  {q:"Quina força NO va formar part de Solidaritat Catalana?",o:["Els carlins","La Lliga","Els republicans federals","El Partit Republicà Radical de Lerroux"],a:3,e:"Lerroux, espanyolista i anticatalanista, s'hi va negar."},
+  {q:"Quina d'aquestes afirmacions sobre la Mancomunitat és CORRECTA?",o:["Restablia la Generalitat","Tenia parlament propi","Unia les quatre diputacions i va crear l'Institut d'Estudis Catalans","Podia recaptar impostos directes"],a:2,e:"Era administrativa: sense parlament ni impostos directes, però va fer una gran obra cultural i d'infraestructures."}
+ ],
+ t3:[
+  {q:"Quin tret distingia especialment el lerrouxisme?",o:["El catolicisme","L'anticatalanisme i l'espanyolisme","La defensa dels furs","L'apoliticisme"],a:1,e:"Demagògia obrerista, anticlericalisme i, sobretot, anticatalanisme."},
+  {q:"Quan i on es va fundar la CNT?",o:["1888, Barcelona","1911, Barcelona","1918, Sants (Madrid)","1907, València"],a:1,e:"El 1911 al saló de Belles Arts de Barcelona."},
+  {q:"Què va aportar el Congrés de Sants (1918)?",o:["La fundació del PSOE","El pas dels sindicats d'ofici al sindicat únic d'indústria","L'aliança amb la UGT","La participació electoral de la CNT"],a:1,e:"El sindicat únic agrupava tot un ram i permetia paralitzar sectors sencers."},
+  {q:"Gràcies a què Pablo Iglesias va ser diputat el 1910?",o:["Solidaritat Catalana","La Conjunció Republicano-Socialista","Un pacte amb la Lliga","El sufragi corporatiu de Maura"],a:1,e:"L'aliança electoral amb els republicans d'esquerra des de 1909."}
+ ],
+ t4:[
+  {q:"Què volia dir Maura amb la \"Revolució des de dalt\"?",o:["Tombar la monarquia","Fer reformes des del poder per evitar una revolució des de baix","Donar el poder als obrers","Declarar la república"],a:1,e:"Reformes de les elits per preservar el règim, sense canviar l'estructura de poder."},
+  {q:"Què era el \"cupo\"?",o:["Un impost sobre la indústria","Pagar diners per no anar a la guerra","Una llei de vaga","Un tribunal militar"],a:1,e:"Uns 1.500 pessetes (un any de sou obrer): els rics se'n lliuraven, els pobres anaven al front."},
+  {q:"Quina batalla de juliol de 1909 va precipitar la mobilització de reservistes?",o:["Annual","Barranco del Lobo","Algesires","Cavite"],a:1,e:"Barranco del Lobo, prop de Melilla, amb més de 1.200 baixes."},
+  {q:"De què es va acusar Ferrer i Guàrdia?",o:["De cremar esglésies personalment","De ser l'inspirador intel·lectual de la revolta","D'assassinar Canalejas","De dirigir la Lliga"],a:1,e:"Sense proves; no era a Barcelona. La seva execució va provocar el \"Maura, no!\"."}
+ ],
+ t5:[
+  {q:"Què prohibia la Llei del Cadenat (1910)?",o:["El treball infantil","La instal·lació de nous ordes religiosos sense permís","Les vagues","Els sindicats"],a:1,e:"Frenava els nous ordes (molts venien de França) fins a una nova llei d'associacions."},
+  {q:"Quina reforma militar va fer Canalejas?",o:["Va mantenir la redempció en metàl·lic","Servei obligatori per a tothom en temps de guerra","Va abolir l'exèrcit","Va crear la Llei de Jurisdiccions"],a:1,e:"Corregia la injustícia que havia encès la Setmana Tràgica."},
+  {q:"Qui va assassinar Canalejas i on?",o:["Mateu Morral, a Barcelona","Manuel Pardiñas, a la Puerta del Sol","Un militar, a Melilla","Un carlí, a Navarra"],a:1,e:"L'anarquista Manuel Pardiñas, el 12/11/1912, davant la llibreria San Martín."},
+  {q:"Quina mesura laboral va prendre Canalejas?",o:["Prohibició del treball nocturn de les dones i edat mínima laboral","Igualtat salarial entre homes i dones","Jornada de 8 hores per a tothom","Legalització de la CNT"],a:0,e:"També va limitar la jornada a la mineria; els salaris femenins continuaven sent inferiors."}
+ ]
+};
+
+const EXAM = [
+ // Tema 1
+ {t:1,q:"Quins tres territoris va perdre Espanya el 1898?",o:["Cuba, Puerto Rico i Filipines","Cuba, el Marroc i Guinea","Filipines, Canàries i Cuba","Puerto Rico, Mèxic i Cuba"],a:0},
+ {t:1,q:"Quan es va acabar la regència de Maria Cristina?",o:["1898","1902","1905","1909"],a:1},
+ {t:1,q:"Quin pensador va encapçalar el Regeneracionisme amb la idea d'\"escola i rebost\"?",o:["Prat de la Riba","Joaquín Costa","Pablo Iglesias","Sabino Arana"],a:1},
+ {t:1,q:"Per què el govern Silvela va despertar esperances a Catalunya?",o:["Perquè va abolir els impostos","Perquè va incorporar figures com Polavieja i Duran i Bas i semblava apostar per la descentralització","Perquè va concedir l'Estatut","Perquè va proclamar la república"],a:1},
+ {t:1,q:"Quina va ser la conseqüència política principal del Tancament de Caixes?",o:["La caiguda de la monarquia","La burgesia catalana es va passar al catalanisme polític (Lliga, 1901)","La fundació de la CNT","La Setmana Tràgica"],a:1},
+ // Tema 2
+ {t:2,q:"Quin va ser el resultat de la Candidatura dels 4 Presidents (1901)?",o:["Va perdre davant els dinàstics","Va guanyar els 4 escons de Barcelona i va acabar amb el caciquisme a la ciutat","Va guanyar 40 de 44 escons","Va portar Cambó a la presidència"],a:1},
+ {t:2,q:"Qui va trencar el boicot a Alfons XIII el 1904?",o:["Lerroux","Prat de la Riba","Francesc Cambó","Bartomeu Robert"],a:2},
+ {t:2,q:"Quines redaccions van assaltar els militars el 25 de novembre de 1905?",o:["El ¡Cu-cut! i La Veu de Catalunya","La Vanguardia i El Liberal","Solidaritat Obrera i El Progreso","L'Esquella i El Diluvio"],a:0},
+ {t:2,q:"Quants escons va obtenir Solidaritat Catalana el 1907?",o:["4 de 4","11 de 44","40 de 44","44 de 44"],a:2},
+ {t:2,q:"Qui va ser el primer president de la Mancomunitat (1914)?",o:["Cambó","Puig i Cadafalch","Prat de la Riba","Duran i Ventosa"],a:2},
+ // Tema 3
+ {t:3,q:"Qui va fundar el PNB i quan?",o:["Sabino Arana, 1895","Blasco Ibáñez, 1901","Pablo Iglesias, 1879","Lerroux, 1908"],a:0},
+ {t:3,q:"Què vol dir l'apoliticisme anarquista?",o:["No participar en eleccions ni en el parlament","No tenir ideologia","Votar sempre la república","Aliar-se amb tots els partits"],a:0},
+ {t:3,q:"On tenia més implantació la UGT?",o:["Catalunya i València","Madrid, Astúries i País Basc","Navarra i Aragó","Galícia i Canàries"],a:1},
+ {t:3,q:"Què era el lock-out?",o:["Una vaga obrera","El tancament de l'empresa per part del patró","Una llista d'afiliats","Un tipus de sindicat"],a:1},
+ {t:3,q:"Quin moviment republicà semblant al lerrouxisme hi havia a València?",o:["El carlisme","El blasquisme","El federalisme","L'integrisme"],a:1},
+ // Tema 4
+ {t:4,q:"Què va fer que els reservistes s'amotinessin al port de Barcelona el 18 de juliol?",o:["La falta de menjar","Dames de la burgesia repartint medalles religioses i tabac, vist com un insult","Un atac rifeny","L'arribada del rei"],a:1},
+ {t:4,q:"Qui va convocar la vaga general del 26 de juliol de 1909?",o:["La CNT i la Lliga","Solidaritat Obrera i sectors socialistes","Els carlins","El govern"],a:1},
+ {t:4,q:"Contra quines dues institucions es va dirigir la fúria popular?",o:["Monarquia i Lliga","Exèrcit i Església","Patronal i UGT","Ajuntament i Diputació"],a:1},
+ {t:4,q:"Quantes condemnes a mort es van executar després de la Setmana Tràgica?",o:["17","5","80","1.200"],a:1},
+ {t:4,q:"Per què la Setmana Tràgica es considera una revolta i no una revolució?",o:["Perquè va durar més d'un mes","Perquè va ser espontània, sense programa i no va canviar el poder","Perquè va guanyar","Perquè la va dirigir Maura"],a:1},
+ // Tema 5
+ {t:5,q:"Quin era l'objectiu bàsic de Canalejas?",o:["Restaurar el caciquisme","Democratitzar el sistema amb obertura social i secularització","Proclamar la república","Envair el Marroc"],a:1},
+ {t:5,q:"Per què hi havia tants ordes religiosos nous a Espanya?",o:["Venien fugint de les lleis laiques de França","Els havia convidat Canalejas","Venien d'Amèrica","Els creava la Lliga"],a:0},
+ {t:5,q:"Quin govern va aprovar finalment la Llei de Mancomunitats (1913)?",o:["Canalejas","Maura","Dato","Silvela"],a:2},
+ {t:5,q:"Quina limitació tenia la Llei de Mancomunitats segons els apunts?",o:["No permetia unir diputacions","No permetia recaptar impostos directes ni tenir sistema educatiu propi","Només valia per a Barcelona","Prohibia el català"],a:1},
+ {t:5,q:"Quina conseqüència va tenir l'assassinat de Canalejas?",o:["L'Estatut d'autonomia","La fi de l'últim intent seriós de reforma liberal i la fragmentació dels partits del torn","La victòria de la CNT","La tornada de Maura per sempre"],a:1}
+];
+
+const OPEN = [
+ {t:1,q:"Explica per què el Tancament de Caixes (1899) és el punt d'inflexió del catalanisme polític.",m:["<b>Context:</b> Desastre del 98 i deute de guerra; Silvela desperta expectatives de descentralització.","<b>Causa:</b> la reforma de Villaverde carrega impostos sobre indústria i comerç (no sobre la terra), i Catalunya és la més perjudicada.","<b>Fets:</b> vaga fiscal (es donen de baixa els negocis); estat de guerra, empresonaments, embargaments; dimissió del Dr. Robert.","<b>Conseqüència:</b> la burgesia veu que Madrid no la defensa, abandona els partits dinàstics i s'uneix al catalanisme: Lliga Regionalista (1901)."]},
+ {t:2,q:"Explica el naixement, la trajectòria i el significat de Solidaritat Catalana.",m:["<b>Origen:</b> Fets del ¡Cu-cut! (1905): 300 oficials assalten el ¡Cu-cut! i La Veu sense càstig.","<b>Detonant:</b> Llei de Jurisdiccions (1906): ofenses a l'exèrcit i la pàtria passen a tribunals militars.","<b>Composició:</b> Lliga, republicans catalanistes, federals i carlins; només en queda fora Lerroux.","<b>Significat:</b> 40 de 44 escons el 1907; fi del torn dinàstic a Catalunya. Es trenca després de 1909."]},
+ {t:3,q:"Compara l'anarcosindicalisme (CNT) i el sindicalisme socialista (UGT).",m:["<b>CNT:</b> Catalunya, València, Andalusia; apoliticisme, acció directa i vaga general revolucionària; de Solidaritat Obrera (1907) a CNT (1911); sindicat únic des de Sants (1918).","<b>UGT:</b> lligada al PSOE; Madrid, Astúries, País Basc; negociadora i disciplinada; combina sindicat i parlament; federacions d'indústria des de 1925.","<b>Davant seu:</b> la patronal amb lock-out, llistes negres i pistolers."]},
+ {t:4,q:"Quines van ser les causes i les conseqüències de la Setmana Tràgica de 1909?",m:["<b>Causes de fons:</b> tensió social a Barcelona, anticlericalisme, antimilitarisme, rebuig a la guerra del Marroc per defensar mines privades.","<b>Detonant:</b> Barranco del Lobo i mobilització de reservistes (pares de família obrers) + injustícia del cupo.","<b>Fets:</b> motí al port (18/7), vaga general (26/7), barricades, crema de més de 80 edificis religiosos (\"Rosa de Foc\").","<b>Conseqüències:</b> estat de guerra, 17 condemnes a mort i 5 execucions, entre elles Ferrer i Guàrdia; protesta internacional, \"Maura, no!\" i destitució de Maura (octubre 1909)."]},
+ {t:5,q:"Compara el reformisme de Maura i el de Canalejas.",m:["<b>Idea:</b> Maura, \"Revolució des de dalt\" per evitar la de baix; Canalejas, obertura social i secularització.","<b>Religió:</b> Maura, suport a l'Església; Canalejas, Llei del Cadenat (1910).","<b>Treball:</b> Maura, llei de vaga restrictiva i arbitratges; Canalejas, jornada màxima i protecció de dones i infants.","<b>Exèrcit:</b> Maura manté el cupo; Canalejas, servei obligatori per a tothom en guerra.","<b>Catalunya:</b> Maura, reforma corporativa fallida; Canalejas, Llei de Mancomunitats.","<b>Final:</b> Maura cau per la Setmana Tràgica; Canalejas és assassinat per Pardiñas (1912)."]}
+];
+
+const L = "ABCD";
+const TC={1:'#c2410c',2:'#b91c1c',3:'#7c3aed',4:'#be123c',5:'#0f766e'};
+function el(tag, cls, html){const e=document.createElement(tag); if(cls) e.className=cls; if(html!==undefined) e.innerHTML=html; return e;}
+
+// Mini-tests per tema (correcció immediata)
+document.querySelectorAll('[data-quiz]').forEach(box=>initOne(box));
+function initOne(box){ // re-render a single quiz
+  const key=box.dataset.quiz, qs=TESTS[key]; let ok=0;
+  const head=el('div','quiz-head'); head.append(el('b',null,'Test ràpid')); const sc=el('span','score',`0 / ${qs.length}`); head.append(sc); box.append(head);
+  qs.forEach((it,i)=>{
+    const q=el('div','q'); q.append(el('div','qt',`${i+1}. ${it.q}`)); const fb=el('div','fb');
+    it.o.forEach((txt,j)=>{const b=el('button','opt',`<b>${L[j]})</b> ${txt}`);
+      b.onclick=()=>{const all=q.querySelectorAll('.opt'); all.forEach(x=>x.disabled=true); all[it.a].classList.add('right');
+        if(j!==it.a){b.classList.add('wrong'); fb.innerHTML='✗ '+it.e;} else {ok++; fb.innerHTML='✓ '+it.e;}
+        fb.classList.add('show'); sc.textContent=`${ok} / ${qs.length}`;};
+      q.append(b);});
+    q.append(fb); box.append(q);
+  });
+  const r=el('button','btn ghost','Repetir test'); r.style.marginTop='10px';
+  r.onclick=()=>{const c=box.cloneNode(false); box.replaceWith(c); initOne(c);}; box.append(r);
+}
+
+// Examen final (es corregeix al final)
+const examBox=document.getElementById('examQs');
+const answers=new Array(EXAM.length).fill(null);
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+let order=[];
+function renderExam(){
+  examBox.innerHTML=''; answers.fill(null); order=shuffle([...EXAM.keys()]);
+  document.getElementById('result').className=''; document.getElementById('result').innerHTML='';
+  order.forEach((idx,n)=>{
+    const it=EXAM[idx]; const q=el('div','q'); q.dataset.idx=idx;
+    q.style.setProperty('--tc',TC[it.t]); q.append(el('div','qt',`${n+1}. ${it.q} <span class="tag tg${it.t}">Tema ${it.t}</span>`));
+    it.o.forEach((txt,j)=>{const b=el('button','opt',`<b>${L[j]})</b> ${txt}`);
+      b.onclick=()=>{q.querySelectorAll('.opt').forEach(x=>{x.style.borderColor='';x.style.background='';}); b.style.borderColor='#1b1f24'; b.style.background='#eef0f3'; answers[idx]=j;};
+      q.append(b);});
+    examBox.append(q);
+  });
+}
+renderExam();
+document.getElementById('reiniciar').onclick=()=>{renderExam(); examBox.scrollIntoView({behavior:'smooth'});};
+document.getElementById('corregir').onclick=()=>{
+  let ok=0; const per={1:[0,0],2:[0,0],3:[0,0],4:[0,0],5:[0,0]};
+  examBox.querySelectorAll('.q').forEach(q=>{
+    const idx=+q.dataset.idx, it=EXAM[idx], opts=q.querySelectorAll('.opt');
+    opts.forEach(x=>{x.disabled=true; x.style.borderColor=''; x.style.background='';});
+    opts[it.a].classList.add('right');
+    per[it.t][1]++;
+    if(answers[idx]===it.a){ok++; per[it.t][0]++;}
+    else if(answers[idx]!==null){opts[answers[idx]].classList.add('wrong');}
+  });
+  const nota=(ok/EXAM.length*10).toFixed(1);
+  const res=document.getElementById('result');
+  const weak=Object.entries(per).filter(([k,v])=>v[0]/v[1]<0.6).map(([k])=>`Tema ${k}`);
+  res.innerHTML=`<div class="big" style="color:${nota>=5?'#1f7a4d':'#b42318'}">${nota} / 10</div><div>${ok} encerts de ${EXAM.length}</div>
+   <div class="bytema">${Object.entries(per).map(([k,v])=>`<div><span class="tag tg${k}" style="margin:0 6px 0 0">Tema ${k}</span>${v[0]}/${v[1]}<div class="bar"><div style="width:${v[0]/v[1]*100}%;background:${TC[k]}"></div></div></div>`).join('')}</div>
+   ${weak.length?`<div style="margin-top:10px">A repassar: <b>${weak.join(', ')}</b></div>`:'<div style="margin-top:10px">Tots els temes per sobre del 60%.</div>'}`;
+  res.className='show'; res.scrollIntoView({behavior:'smooth',block:'center'});
+};
+
+// Preguntes de desenvolupament
+const openBox=document.getElementById('openQs');
+OPEN.forEach((it,i)=>{
+  const d=el('div','open'); d.style.setProperty('--tc',TC[it.t]); d.append(el('div','qt',`${i+1}. ${it.q} <span class="tag tg${it.t}">Tema ${it.t}</span>`));
+  d.append(el('textarea')); const m=el('div','model',`<b>Resposta model (punts que has de tocar):</b><ul>${it.m.map(x=>`<li>${x}</li>`).join('')}</ul>`);
+  const b=el('button','btn ghost','Veure resposta model'); b.style.marginTop='10px';
+  b.onclick=()=>{m.classList.toggle('show'); b.textContent=m.classList.contains('show')?'Amagar resposta model':'Veure resposta model';};
+  d.append(b); d.append(m); openBox.append(d);
+});
+</script>
+</body>
+</html>
